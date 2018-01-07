@@ -2,11 +2,150 @@ body {
   background: linear-gradient(45deg, rgba(37,19,81,1) 0%, rgba(4,9,38,1) 100%);
 }
 
-.container {
+.App {
   width: 500px;
-  height: 100vh;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  border-radius: 3px;
+  position: relative;
+}
+
+.Header {
+  flex-grow: 0;
+  /*background: rgba(255, 255, 255, 0.45);*/
+  height: 60px;
+}
+
+.Search {
+  padding: 10px;
+}
+
+.SearchField {
+  padding: 10px;
+  border: 0;
+  border-radius: 1px;
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  font-weight: 300;
+  box-sizing: border-box;
+  background: transparent;
+  color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  transition: border .125s ease;
+}
+
+.SearchField:focus {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.Results {
+  flex-grow: 1;
   overflow-y: scroll;
+  margin-right: 10px;
+  color: white;
+
+}
+
+.App::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 200px;
   background: linear-gradient(to bottom,  rgba(37,19,81,0) 0%,rgba(4,9,38,1) 100%);
+  pointer-events: none;
+}
+
+.Result{
+  display: flex;
+  color: white;
+  padding: 10px;
+}
+
+.Icon {
+  width: 90px;
+  height: 90px;
+  padding: 10px;
+  animation-name: icon;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.Icon .Number{
+  font-size: 10px;
+}
+
+.Icon .Symbol{
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.Icon .Name{
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.Icon .Mass{
+  font-size: 12px;
+}
+
+.Title {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.Icon[data-type="unknown"] {
+  background: black;
+}
+
+.Icon[data-type="noble"] {
+  background: #511A93;
+}
+
+.Icon[data-type="alkali-metal"] {
+  background: #FE621D;
+}
+
+.Icon[data-type="alkaline-earth-metal"] {
+  background: #FFD402;
+}
+
+.Icon[data-type="other-non-metal"] {
+  background: #93FC00;
+}
+
+.Icon[data-type="poor-metal"] {
+  background: #1CEAB0;
+}
+
+.Icon[data-type="transition-metal"] {
+  background: #B70000;
+}
+
+.Icon[data-type="lanthanoid"] {
+  background: #CC4360;
+}
+
+.Icon[data-type="actinoid"] {
+  background: #5C4D75;
+}
+
+@keyframes icon {
+  0% {transform: scale(1);}
+  25% {transform: scale(.95);}
+  50% {transform: scale(1.05);}
+  75% {transform: scale(.95);}
+  100% {transform: scale(1);}
 }
